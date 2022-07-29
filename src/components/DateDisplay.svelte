@@ -105,39 +105,29 @@
 </script>
 
 {#if date}
-	<!-- <div class="wrapper"> -->
-		<ConfettiExplosion
-			duration={2000}
-			force={0.3}
-			particleCount={200}
-			particlesShape="rectangles"
-			--x={`${randomNumber(0,1) === 0 ? '-': ''}${randomNumber(0,30)}vw`}
-		/>
-		<div class="inner-wrapper">
-			<div class="days-until">Days {diff > 0 ? 'until' : 'since'}</div>
-			<div class="target-date">
-				{targetDate.toLocaleDateString('en-US', {
-					weekday: 'long',
-					year: 'numeric',
-					month: 'long',
-					day: 'numeric'
-				})}
-			</div>
-			<div class="days-value">{getPreferredDisplayUnit()}</div>
-			<button on:click={goBack}>Choose another date</button>
+	<ConfettiExplosion
+		duration={2000}
+		force={0.3}
+		particleCount={200}
+		particlesShape="rectangles"
+		--x={`${randomNumber(0,1) === 0 ? '-': ''}${randomNumber(0,30)}vw`}
+	/>
+	<div class="inner-wrapper">
+		<div class="days-until">Days {diff > 0 ? 'until' : 'since'}</div>
+		<div class="target-date">
+			{targetDate.toLocaleDateString('en-US', {
+				weekday: 'long',
+				year: 'numeric',
+				month: 'long',
+				day: 'numeric'
+			})}
 		</div>
-	<!-- </div> -->
+		<div class="days-value">{getPreferredDisplayUnit()}</div>
+		<button on:click={goBack}>Choose another date</button>
+	</div>
 {/if}
 
 <style>
-	.wrapper {
-		border: 1px solid red;
-		display: flex;
-		height: 100%;
-		justify-content: center;
-		width: 100%;
-
-	}
 	.inner-wrapper {
 		display: flex;
 		flex-direction: column;
