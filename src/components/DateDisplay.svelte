@@ -1,12 +1,12 @@
 <script lang="ts">
 	import { ConfettiExplosion } from 'svelte-confetti-explosion';
 	export let date = '';
+	export let onChooseAgain = () => {};
 
 	const nowDate = new Date();
 
 	let targetDate: Date;
 	let diff: number;
-	let debug = '';
 
 	interface CountdownUnits {
 		days?: number;
@@ -70,10 +70,6 @@
 		return ret.join(', ');
 	};
 
-	const goBack = () => {
-		document.location.href = '.';
-	};
-
 	function parseDate(date: string): Date {
 		let year = date.substring(0, 4);
 		let month = date.substring(4, 6);
@@ -123,7 +119,7 @@
 			})}
 		</div>
 		<div class="days-value">{getPreferredDisplayUnit()}</div>
-		<button on:click={goBack}>Choose another date</button>
+		<button on:click={onChooseAgain}>Choose another date</button>
 	</div>
 {/if}
 

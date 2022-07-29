@@ -15,6 +15,16 @@
 		currentDate = d.detail;
 	};
 
+	const handleChooseAgain = () => {
+		date = null;
+		window.history.replaceState({}, '','./');
+	};
+
+	const handleDateSubmit = (goto: string) => {
+		date = goto;
+		window.history.replaceState({}, '','./?date=' + goto);
+	};
+
 	const isAllowed = (date: Date) => {
 		// const millisecs = date.getTime();
 		// if (millisecs + 25 * 3600 * 1000 < Date.now()) return false;
@@ -33,9 +43,9 @@
 
 <div class="wrapper">
 	{#if date || search}
-		<DateDisplay date={date || search} />
+		<DateDisplay date={date || search} onChooseAgain={handleChooseAgain} />
 	{:else}
-    	<DatePicker on:datechange={onDateChange} selected={currentDate} {isAllowed} />
+    	<DatePicker on:datechange={onDateChange} handleDateChange={handleDateSubmit} selected={currentDate} {isAllowed} />
 	{/if}
 </div>
 

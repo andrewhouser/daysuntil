@@ -7,6 +7,7 @@
 
 	// props
 	export let isAllowed = (date: Date) => true;
+	export let handleDateChange: (date: string) => void;
 	export let selected = new Date();
 
 	// state
@@ -49,12 +50,17 @@
 		dispatch('datechange', d.detail);
 	};
 
-    const goToDate = () => document.location.href=`?date=${year}${month+1}${date}`;
+    const goToDate = () => {
+		handleDateChange(`${year}${month+1}${date}`);
+	};
 </script>
 
 <div class="relative">
 	<h2>Days until...</h2>
-	<input type="text" on:focus={onFocus} value={selected.toDateString()} /> <button on:click={goToDate}>Go</button>
+	<div>
+		<input type="text" on:focus={onFocus} value={selected.toDateString()} />
+		<button on:click={goToDate}>Go</button>
+	</div>
 	{#if showDatePicker}
 		<div class="box">
 			<div class="month-name">
