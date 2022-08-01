@@ -4,6 +4,7 @@
 	export let onChooseAgain = () => {};
 
 	const nowDate = new Date();
+	const thisMorning = new Date(nowDate.getFullYear(), nowDate.getMonth(), nowDate.getDate());
 
 	let targetDate: Date;
 	let diff: number;
@@ -17,7 +18,7 @@
 
 	if (date) {
 		targetDate = parseDate(date);
-		diff = targetDate.getTime() - nowDate.getTime();
+		diff = targetDate.getTime() - thisMorning.getTime();
 	}
 
 	const daysToWeeks = (days: number): CountdownUnits => {
@@ -55,17 +56,17 @@
 	};
 
 	const getPreferredDisplayUnit = (): string => {
-		if (Math.abs(diff) < 0) {
+		if (Math.abs(diff) === 0) {
 			return "It's Today!";
 		}
 		const days = Math.abs(diff) / (1000 * 60 * 60 * 24);
 		const { years, months, weeks, days: dayCount } = daysToYears(days);
 
 		let ret: string[] = [];
-		if (years) ret.push(`${years} years`);
-		if (months) ret.push(`${months} months`);
-		if (weeks) ret.push(`${weeks} weeks`);
-		if (dayCount) ret.push(`${dayCount} days`);
+		if (years) ret.push(`${years} year${years === 1 ? '' : 's'}`);
+		if (months) ret.push(`${months} month${months === 1 ? '' : 's'}`);
+		if (weeks) ret.push(`${weeks} week${weeks === 1 ? '' : 's'}`);
+		if (dayCount) ret.push(`${dayCount} day${dayCount === 1 ? '' : 's'}`);
 
 		return ret.join(', ');
 	};
