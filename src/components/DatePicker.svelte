@@ -86,7 +86,7 @@
 	}
 
 	h2 {
-		color: var(--light2);
+		color: var(--text-color);
 	}
 
 	input[type="text"] {
@@ -97,7 +97,7 @@
 	}
 
 	.box {
-		background-color: var(--light1);
+		background-color: var(--text-color);
 		border-radius: 0.5em;
 		box-shadow: 0 0 1em 1em rgb(0 0 0 / 30%);
 		color: var(--dark1);

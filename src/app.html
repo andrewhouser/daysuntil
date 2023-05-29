@@ -1,61 +1,64 @@
 <!DOCTYPE html>
 <html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" href="%sveltekit.assets%/favicon.png" />
-		<meta name="viewport" content="width=device-width" />
-		%sveltekit.head%
 
-		<style>
-			:root {
-				--light1: #E5D0CC;
-				--light2: #BFACB5;
-				--medium: #7f7B82;
-				--dark1: #444554;
-				--dark2: #172121;
+<head>
+	<meta charset="utf-8" />
+	<link rel="icon" href="%sveltekit.assets%/favicon.png" />
+	<meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale = 1.0, user-scalable = no">
+	%sveltekit.head%
 
-				--primary-action: #a0678a;
-				--primary-action-hover: #9E788F;
-			}
+	<style>
+		:root {
+			--background-color: #27374D;
+			--text-color: #DDE6ED;
+			--text-color-2: #9DB2BF;
 
-			@font-face {
-				font-family: 'bellezaregular';
-				src: url('belleza-regular-webfont.woff2') format('woff2'),
-					url('belleza-regular-webfont.woff') format('woff');
-				font-weight: normal;
-				font-style: normal;
+			--primary-action: #526D82;
+			--primary-action-hover: #88b3d3;
+		}
 
-			}
-			html, body {
-				background-color: var(--dark2);
-				height: 100%;
-				margin: 0;
-				overflow: hidden;
-				padding: 0;
-			}
+		@font-face {
+			font-family: 'bellezaregular';
+			src: url('belleza-regular-webfont.woff2') format('woff2'),
+				url('belleza-regular-webfont.woff') format('woff');
+			font-weight: normal;
+			font-style: normal;
 
-			body > * {
-				box-sizing: border-box;
-				font-family: "bellezaregular", sans-serif;
-			}
+		}
 
-			button {
-				background-color: var(--primary-action);
-				border: none;
-				border-radius: .25rem;
-				color: #fff;
-				cursor: pointer;
-				font-size: 100%;
-				padding: 0.5rem 1rem;
-				transition: background-color .2s ease-in-out;
-			}
+		html,
+		body {
+			background-color: var(--background-color);
+			height: 100%;
+			margin: 0;
+			overflow: hidden;
+			padding: 0;
+		}
 
-			button:hover {
-				background-color: var(--primary-action-hover);
-			}
-		</style>
-	</head>
-	<body>
-		%sveltekit.body%
-	</body>
+		body>* {
+			box-sizing: border-box;
+			font-family: "bellezaregular", sans-serif;
+		}
+
+		button {
+			background-color: var(--primary-action);
+			border: none;
+			border-radius: .25rem;
+			color: #fff;
+			cursor: pointer;
+			font-size: 100%;
+			padding: 0.5rem 1rem;
+			transition: background-color .2s ease-in-out;
+		}
+
+		button:hover {
+			background-color: var(--primary-action-hover);
+		}
+	</style>
+</head>
+
+<body>
+	%sveltekit.body%
+</body>
+
 </html>

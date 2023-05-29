@@ -139,18 +139,18 @@
 	}
 
 	.days-until {
-		color: var(--medium);
+		color: var(--text-color-2);
 		font-size: 1.6rem;
 	}
 
 	.target-date {
-		color: var(--light2);
+		color: var(--text-color);
 		font-size: 2rem;
 		font-weight: bold;
 	}
 
 	.days-value {
-		color: var(--light1);
+		color: var(--text-color-2);
 		font-size: 1.8rem;
 	}
 

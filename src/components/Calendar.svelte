@@ -69,7 +69,7 @@
     }
   
     .cell {
-      border-radius: .25rem;
+		border-radius: 0.25rem;
       display: inline-block;
       height: 20px;
       margin: 1px;
@@ -79,7 +79,7 @@
     }
   
     .selected {
-      background-color: #7284A8;
+		background-color: #7284a8;
       color: #fff;
     }
   
@@ -94,13 +94,13 @@
     }
   
     .highlight:hover {
-      background: #A9B3CE;
+		background: #a9b3ce;
       color: #fff;
       cursor: pointer;
       transform: scale(1.3);
     }
   
     .selected.highlight:hover {
-      background-color: #7284A8;
+		background-color: #7284a8;
     }
   </style>
