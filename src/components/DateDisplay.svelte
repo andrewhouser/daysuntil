@@ -102,13 +102,15 @@
 </script>
 
 {#if date}
-	<ConfettiExplosion
-		duration={2000}
-		force={0.3}
-		particleCount={200}
-		particlesShape="rectangles"
-		--x={`${randomNumber(0,1) === 0 ? '-': ''}${randomNumber(0,30)}vw`}
-	/>
+	{#if diff > 0}
+		<ConfettiExplosion
+			duration={2000}
+			force={0.3}
+			particleCount={200}
+			particlesShape="rectangles"
+			--x={`${randomNumber(0, 1) === 0 ? '-' : ''}${randomNumber(0, 30)}vw`}
+		/>
+	{/if}
 	<div class="inner-wrapper">
 		<div class="days-until">Days {diff > 0 ? 'until' : 'since'}</div>
 		<div class="target-date">
