@@ -23,26 +23,26 @@
 		year = selected.getFullYear();
 	}
 
-	const onFocus = () => showDatePicker = true;
+	const onFocus = () => (showDatePicker = true);
 
 	const next = () => {
-        if(month !== 11) {
-            month = month + 1;
-            return;
-        }
+		if (month !== 11) {
+			month = month + 1;
+			return;
+		}
 
-        month = 0;
-        year = year + 1;
+		month = 0;
+		year = year + 1;
 	};
 
 	const prev = () => {
-        if(month !== 0) {
-            month = month - 1;
-            return;
-        }
+		if (month !== 0) {
+			month = month - 1;
+			return;
+		}
 
-        month = 11;
-        year = year - 1;
+		month = 11;
+		year = year - 1;
 	};
 
 	const onDateChange = (d: CustomEvent<Date>) => {
@@ -50,7 +50,7 @@
 		dispatch('datechange', d.detail);
 	};
 
-    const goToDate = () => {
+	const goToDate = () => {
 		const dateObj = new Date(year, month, date);
 		const goDate = `${dateObj.getFullYear()}${(dateObj.getMonth() + 1)
 			.toString()
@@ -62,7 +62,7 @@
 
 <div class="relative">
 	<h2>Days until...</h2>
-	<div>
+	<div class="date-input">
 		<input type="text" on:focus={onFocus} value={selected.toDateString()} />
 		<button on:click={goToDate}>Go</button>
 	</div>
@@ -84,8 +84,8 @@
 
 <style>
 	.relative {
-        align-self: center;
-        flex: 0 0 auto;
+		align-self: center;
+		flex: 0 0 auto;
 		margin-top: -25%;
 		position: relative;
 	}
@@ -94,8 +94,14 @@
 		color: var(--text-color);
 	}
 
-	input[type="text"] {
-		padding: 0.5em;
+	.date-input {
+		align-items: center;
+		display: flex;
+		gap: 8px;
+	}
+
+	input[type='text'] {
+		padding: 0.6em;
 		border: 1px solid #ccc;
 		border-radius: 0.25em;
 		outline: none;
@@ -105,12 +111,11 @@
 		background-color: var(--text-color);
 		border-radius: 0.5em;
 		box-shadow: 0 0 1em 1em rgb(0 0 0 / 30%);
-		color: var(--dark1);
 		display: inline-block;
-		left: 0px;
+		left: 50%;
 		position: absolute;
 		top: 105px;
-		transform: translateX(-25%);
+		transform: translateX(-50%);
 	}
 
 	.month-name {
