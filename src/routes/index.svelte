@@ -1,5 +1,4 @@
 <script lang="ts">
-
 	import DatePicker from '../components/DatePicker.svelte';
 	import DateDisplay from '../components/DateDisplay.svelte';
 	import { onMount } from 'svelte';
@@ -17,12 +16,12 @@
 
 	const handleChooseAgain = () => {
 		date = null;
-		window.history.replaceState({}, '','./');
+		window.history.replaceState({}, '', './');
 	};
 
 	const handleDateSubmit = (goto: string) => {
 		date = goto;
-		window.history.replaceState({}, '','./?date=' + goto);
+		window.history.replaceState({}, '', './?date=' + goto);
 	};
 
 	const isAllowed = (date: Date) => {
@@ -35,25 +34,35 @@
 	onMount(() => {
 		const url = window.document.location.href;
 
-		if(url && url.indexOf('date=')){{
-			search = url.split('date=')[1];
-		}}
-	})
+		if (url?.indexOf('date=')) {
+			const parts = url.split('date=');
+			if (parts[1].length !== 8) return;
+
+			{
+				search = url.split('date=')[1];
+			}
+		}
+	});
 </script>
 
 <div class="wrapper">
 	{#if date || search}
 		<DateDisplay date={date || search} onChooseAgain={handleChooseAgain} />
 	{:else}
-    	<DatePicker on:datechange={onDateChange} handleDateChange={handleDateSubmit} selected={currentDate} {isAllowed} />
+		<DatePicker
+			on:datechange={onDateChange}
+			handleDateChange={handleDateSubmit}
+			selected={currentDate}
+			{isAllowed}
+		/>
 	{/if}
 </div>
 
 <style>
-    .wrapper {
+	.wrapper {
 		justify-content: center;
-        display: flex;
-        height: 100%;
-        place-content: center;
-    }
+		display: flex;
+		height: 100%;
+		place-content: center;
+	}
 </style>
